@@ -1,11 +1,17 @@
-const btn = document.getElementById("tweet-btn");
-const feed = document.getElementById("feed");
+const textarea = document.getElementById("tweet-input");
+const counter = document.createElement("p");
+counter.id = "counter";
+counter.textContent = "0 / 140";
+document.querySelector(".tweet-box").append(counter);
+
+textarea.addEventListener("input", () => {
+  counter.textContent = `${textarea.value.length} / 140`;
+  counter.style.color = textarea.value.length > 140 ? "red" : "black";
+});
 
 btn.addEventListener("click", () => {
-  const input = document.getElementById("tweet-input");
-  const text = input.value.trim();
-
-  if (text) {
+  const text = textarea.value.trim();
+  if (text && text.length <= 140) {
     const div = document.createElement("div");
     div.className = "tweet";
     div.innerHTML = `
@@ -16,14 +22,15 @@ btn.addEventListener("click", () => {
       </div>
     `;
     feed.prepend(div);
-    input.value = "";
+    textarea.value = "";
+    counter.textContent = "0 / 140";
 
     div.querySelector(".like").addEventListener("click", (e) => {
       e.target.classList.toggle("liked");
     });
 
-    div.querySelector(".delete").addEventListener("click", () => {
-      div.remove();
-    });
+    div.querySelector(".delete").addEventListener("click", () => div.remove());
+  } else {
+    alert("Tweet must be between 1 and 140 characters!");
   }
 });
