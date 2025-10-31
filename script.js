@@ -1,36 +1,26 @@
-const textarea = document.getElementById("tweet-input");
-const counter = document.createElement("p");
-counter.id = "counter";
-counter.textContent = "0 / 140";
-document.querySelector(".tweet-box").append(counter);
+const toggle = document.createElement("button");
+toggle.textContent = "🌙 Dark Mode";
+toggle.style.position = "fixed";
+toggle.style.bottom = "20px";
+toggle.style.right = "20px";
+document.body.append(toggle);
 
-textarea.addEventListener("input", () => {
-  counter.textContent = `${textarea.value.length} / 140`;
-  counter.style.color = textarea.value.length > 140 ? "red" : "black";
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
 });
+
+let tweetCount = 0;
+const tweetCounter = document.createElement("div");
+tweetCounter.id = "tweet-counter";
+tweetCounter.textContent = "Tweets: 0";
+tweetCounter.style.textAlign = "center";
+tweetCounter.style.fontWeight = "bold";
+document.body.prepend(tweetCounter);
 
 btn.addEventListener("click", () => {
   const text = textarea.value.trim();
   if (text && text.length <= 140) {
-    const div = document.createElement("div");
-    div.className = "tweet";
-    div.innerHTML = `
-      <p>${text}</p>
-      <div class="actions">
-        <button class="like">❤️ Like</button>
-        <button class="delete">🗑️ Delete</button>
-      </div>
-    `;
-    feed.prepend(div);
-    textarea.value = "";
-    counter.textContent = "0 / 140";
-
-    div.querySelector(".like").addEventListener("click", (e) => {
-      e.target.classList.toggle("liked");
-    });
-
-    div.querySelector(".delete").addEventListener("click", () => div.remove());
-  } else {
-    alert("Tweet must be between 1 and 140 characters!");
+    tweetCount++;
+    tweetCounter.textContent = `Tweets: ${tweetCount}`;
   }
 });

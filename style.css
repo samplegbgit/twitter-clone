@@ -59,3 +59,17 @@ header {
 .like.liked {
   color: red;
 }
+.dark {
+  background: #15202b;
+  color: white;
+}
+
+.dark header {
+  background: #192734;
+}
+
+.dark .tweet-box,
+.dark .tweet {
+  background: #22303c;
+  color: white;
+}

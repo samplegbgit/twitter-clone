@@ -18,3 +18,8 @@ Next: Add tweet character counter and input validation.
 ✅ Added live character counter  
 ✅ Prevented tweets longer than 140 characters  
 Next: Add dark mode and tweet counter.
+
+### Day 4
+✅ Added dark mode 🌙  
+✅ Added tweet counter 🧮  
+Next: Make app responsive for mobile.
