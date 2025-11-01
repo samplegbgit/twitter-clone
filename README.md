@@ -23,3 +23,7 @@ Next: Add dark mode and tweet counter.
 ✅ Added dark mode 🌙  
 ✅ Added tweet counter 🧮  
 Next: Make app responsive for mobile.
+
+### Day 5
+✅ Added responsive design for mobile  
+✅ Cleaned up styles and improved layout  

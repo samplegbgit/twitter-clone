@@ -73,3 +73,18 @@ header {
   background: #22303c;
   color: white;
 }
+@media (max-width: 600px) {
+  .tweet-box,
+  .tweet {
+    width: 90%;
+  }
+
+  header {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  #tweet-btn {
+    padding: 8px 16px;
+  }
+}
